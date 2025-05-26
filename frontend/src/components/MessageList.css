@@ -1,0 +1,315 @@
+.message-list {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #0e1621;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  max-width: 70%;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.message.selected {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-radius: 8px;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: #2b5278;
+  border-radius: 12px 12px 0 12px;
+  color: #fff;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #182533;
+  border-radius: 12px 12px 12px 0;
+  color: #fff;
+}
+
+.message.pinned {
+  border-left: 3px solid #2b5278;
+  background-color: rgba(43, 82, 120, 0.1);
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #2196f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.message-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.message-content {
+  padding: 8px 12px;
+  word-wrap: break-word;
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #7d8b99;
+  margin-top: 4px;
+  padding: 0 12px 8px;
+  justify-content: flex-end;
+}
+
+.message-time {
+  font-size: 11px;
+}
+
+.message-status {
+  font-size: 11px;
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.message-status.sent {
+  color: #7d8b99;
+}
+
+.message-status.delivered {
+  color: #7d8b99;
+}
+
+.message-status.read {
+  color: #4caf50;
+}
+
+.message-actions {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: none;
+  gap: 4px;
+}
+
+.message:hover .message-actions {
+  display: flex;
+}
+
+.message-actions button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #666;
+  font-size: 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.message-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.message-attachments {
+  margin-top: 8px;
+}
+
+.attachment {
+  margin-top: 4px;
+}
+
+.attachment img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 4px;
+}
+
+.attachment a {
+  color: #2196f3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.attachment a:hover {
+  text-decoration: underline;
+}
+
+.message-reactions {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.reaction {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.reaction-picker {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+}
+
+.reaction-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.reaction-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.reaction-button.active {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+
+.file-attachment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.file-attachment:hover {
+  background-color: #e0e0e0;
+}
+
+.file-icon {
+  font-size: 1.2rem;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.edit-button,
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 1;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-actions button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.edit-actions button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-actions button[type="button"] {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.edited-indicator {
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+.pinned-indicator {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pin-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.pin-button:hover {
+  opacity: 1;
+} 
